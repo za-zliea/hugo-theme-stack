@@ -74,4 +74,4 @@ footer:
     other: Theme {{ .Theme }} thiết kế bởi {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

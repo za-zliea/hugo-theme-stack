@@ -59,4 +59,4 @@ footer:
         other: Theme {{ .Theme }} ontworpen door {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

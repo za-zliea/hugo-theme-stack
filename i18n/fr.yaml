@@ -69,4 +69,4 @@ footer:
         other: Thème {{ .Theme }} conçu par {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

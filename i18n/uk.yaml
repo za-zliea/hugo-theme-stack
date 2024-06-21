@@ -71,4 +71,4 @@ footer:
         other: Тема {{ .Theme }}, дизайн {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

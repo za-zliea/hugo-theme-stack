@@ -73,7 +73,7 @@ footer:
     other: थीम {{ .Theme }} द्वारा डिज़ाइन किया गया {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

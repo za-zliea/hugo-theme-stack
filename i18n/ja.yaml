@@ -70,4 +70,4 @@ footer:
         other: テーマ {{ .Theme }} は {{ .DesignedBy }} によって設計されています。
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

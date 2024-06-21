@@ -72,4 +72,4 @@ footer:
         other: "{{ .DesignedBy }}의 {{ .Theme }} 테마 사용 중"
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

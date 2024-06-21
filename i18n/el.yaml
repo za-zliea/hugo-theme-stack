@@ -70,4 +70,4 @@ footer:
         other: Το θέμα {{ .Theme }} σχεδιάστηκε από το {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

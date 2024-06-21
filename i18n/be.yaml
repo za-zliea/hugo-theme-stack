@@ -72,4 +72,4 @@ footer:
         other: Тэма {{ .Theme }}, дызайн {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

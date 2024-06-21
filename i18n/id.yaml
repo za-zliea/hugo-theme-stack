@@ -73,4 +73,4 @@ footer:
         other: Tema {{ .Theme }} dirancang oleh {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

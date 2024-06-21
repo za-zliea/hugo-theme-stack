@@ -82,4 +82,4 @@ footer:
         other: Motyw {{ .Theme }} zaprojektowany przez {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

@@ -71,4 +71,4 @@ footer:
         other: Šablóna {{ .Theme }} od {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

@@ -73,4 +73,4 @@ footer:
         other: قالب {{ .Theme }} ساخته شده توسط {{ .DesignedBy }}
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

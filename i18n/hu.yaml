@@ -73,4 +73,4 @@ footer:
         other: A {{ .Theme }} dizájnt {{ .DesignedBy }} tervezte
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"

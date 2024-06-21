@@ -53,4 +53,4 @@ footer:
         other: "{{ .Theme }} teması {{ .DesignedBy }} tarafından tasarlandı"
 
     icp:
-        other: {{ .ICP }}
+        other: "{{ .ICP }}"
