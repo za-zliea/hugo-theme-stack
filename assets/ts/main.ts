@@ -5,11 +5,13 @@
 *   @website: https://jimmycai.com
 *   @link: https://github.com/CaiJimmy/hugo-theme-stack
 */
-
-import { createGallery } from "./gallery"
-import { getColor } from './color';
-import menu from './menu';
-import createElement from './createElement';
+import StackGallery from "ts/gallery";
+import { getColor } from 'ts/color';
+import menu from 'ts/menu';
+import createElement from 'ts/createElement';
+import StackColorScheme from 'ts/colorScheme';
+import { setupScrollspy } from 'ts/scrollspy';
+import { setupSmoothAnchors } from "ts/smoothAnchors";
 
 let Stack = {
     init: () => {
@@ -18,23 +20,12 @@ let Stack = {
          */
         menu();
 
-        if (document.querySelector('.article-content')) {
-            createGallery('.article-content');
+        const articleContent = document.querySelector('.article-content') as HTMLElement;
+        if (articleContent) {
+            new StackGallery(articleContent);
+            setupSmoothAnchors();
+            setupScrollspy();
         }
-
-        /**
-         * Add color to tags
-         */
-        document.querySelectorAll('.color-tag').forEach(async (tag: HTMLLinkElement) => {
-            const imageURL = tag.getAttribute('data-image'),
-                key = tag.getAttribute('data-key'),
-                hash = tag.getAttribute('data-hash');
-
-            const colors = await getColor(key, hash, imageURL);
-
-            tag.style.color = colors.Vibrant.bodyTextColor;
-            tag.style.background = colors.Vibrant.hex;
-        })
 
         /**
          * Add linear gradient background to tile style article
@@ -66,6 +57,41 @@ let Stack = {
 
             observer.observe(articleTile)
         }
+
+
+        /**
+         * Add copy button to code block
+        */
+        const highlights = document.querySelectorAll('.article-content div.highlight');
+        const copyText = `Copy`,
+            copiedText = `Copied!`;
+
+        highlights.forEach(highlight => {
+            const copyButton = document.createElement('button');
+            copyButton.innerHTML = copyText;
+            copyButton.classList.add('copyCodeButton');
+            highlight.appendChild(copyButton);
+
+            const codeBlock = highlight.querySelector('code[data-lang]');
+            if (!codeBlock) return;
+
+            copyButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(codeBlock.textContent)
+                    .then(() => {
+                        copyButton.textContent = copiedText;
+
+                        setTimeout(() => {
+                            copyButton.textContent = copyText;
+                        }, 1000);
+                    })
+                    .catch(err => {
+                        alert(err)
+                        console.log('Something went wrong', err);
+                    });
+            });
+        });
+
+        new StackColorScheme(document.getElementById('dark-mode-toggle'));
     }
 }
 

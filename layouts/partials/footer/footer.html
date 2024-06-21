@@ -1,12 +1,21 @@
+{{- $ThemeVersion := "3.26.0" -}}
 <footer class="site-footer">
     <section class="copyright">
-        &copy; {{ now.Format "2006" }} {{ .Site.Title }} <br />
-除非另有说明, 否则本站内容依据<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可证进行授权, 转载请附上出处链接.
+        &copy;  {{ now.Format "2006" }} {{ .Site.Title }} <br />
+        除非另有说明, 否则本站内容依据<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可证进行授权, 转载请附上出处链接.
     </section>
+    
     <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-	Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by <a href="hjimmycai.com" target="_blank" rel="noopener">Jimmy</a> <br />
-        <a href="https://beian.miit.gov.cn/">辽ICP备2020014452号</a>
+        {{ with .Site.Params.footer.customText }}
+            {{ . | safeHTML }} <br/>
+        {{ end }}
+
+        {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
+        {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
+        {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}
+        {{- $ICP := `<a href="https://beian.miit.gov.cn/">辽ICP备2020014452号</a>` -}}
+        {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} <br />
+        {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy) | safeHTML }}
+        {{ T "footer.icp" (dict "ICP" $ICP) | safeHTML }}
     </section>
 </footer>
-        
